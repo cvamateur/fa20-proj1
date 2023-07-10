@@ -22,12 +22,36 @@
 Color *evaluateOnePixel(Image *image, int row, int col)
 {
 	//YOUR CODE HERE
+    static Color new_color;
+
+    uint8_t B = image->image[row][col].B;
+
+    if (B & 1) {
+        new_color.B = 255;
+        new_color.G = 255;
+        new_color.R = 255;
+    } else {
+        new_color.B = 0;
+        new_color.G = 0;
+        new_color.R = 0;
+    }
+
+    return &new_color;
 }
 
 //Given an image, creates a new image extracting the LSB of the B channel.
 Image *steganography(Image *image)
 {
 	//YOUR CODE HERE
+    Color *new_color;
+    for (int i = 0; i < image->rows; ++i) {
+        for (int j = 0; j < image->cols; ++j) {
+            new_color = evaluateOnePixel(image, i, j);
+            image->image[i][j] = *new_color;
+        }
+    }
+
+    return image;
 }
 
 /*
@@ -46,4 +70,22 @@ Make sure to free all memory before returning!
 int main(int argc, char **argv)
 {
 	//YOUR CODE HERE
+    Image *image;
+
+    if (argc != 2) {
+        fprintf(stderr, "usage: %s <PPM-Image-Path>\n", argv[0]);
+        exit(-1);
+    }
+
+    image = readData(argv[1]);
+    writeData(image);
+    fflush(stdout);
+
+    image = steganography(image);
+    writeData(image);
+    fflush(stdout);
+
+    freeImage(image);
+
+    return 0;
 }

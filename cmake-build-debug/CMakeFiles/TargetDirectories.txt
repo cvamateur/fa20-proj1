@@ -1,0 +1,4 @@
+/mnt/c/Users/cvama/CLionProjects/fa20-proj1/cmake-build-debug/CMakeFiles/imageloadertester.dir
+/mnt/c/Users/cvama/CLionProjects/fa20-proj1/cmake-build-debug/CMakeFiles/steganography.dir
+/mnt/c/Users/cvama/CLionProjects/fa20-proj1/cmake-build-debug/CMakeFiles/edit_cache.dir
+/mnt/c/Users/cvama/CLionProjects/fa20-proj1/cmake-build-debug/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,1 @@
+/usr/bin/cc -g CMakeFiles/imageloadertester.dir/imageloadertester.c.o CMakeFiles/imageloadertester.dir/imageloader.c.o -o imageloadertester 

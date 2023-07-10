@@ -32,10 +32,15 @@ Image *readData(char *filename) {
         exit(-1);
     }
 
-    char buffer[10];
+    // Result image
     Image *img = malloc(sizeof(Image));
+    if (img == NULL) {
+        fprintf(stderr, "error: [readData] malloc failed\n");
+        exit(-1);
+    }
 
     // Read format
+    char buffer[10];
     fscanf(fp, "%s", buffer);
     if (strcmp(buffer, "P3") != 0) {
         fprintf(stderr, "error: [readData] not a PPM format file\n");
